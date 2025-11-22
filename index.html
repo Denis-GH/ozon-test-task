@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/main.css">
+  <title>Progress</title>
+</head>
+<body>
+  <div class="wrapper">
+    <h1 class="wrapper__title">Progress</h1>
+    <div class="wrapper__progress">
+      <div class="progress-container">
+        <div class="progress"></div>
+      </div>
+    </div>
+    <div class="wrapper__controls controls">
+      <div class="controls__container">
+        <label class="value controls__item">
+        <input type="number" class="controls-input" id="valueInput" min="0" max="100" value="0">
+        <span class="controls__label">Value</span>
+      </label>
+      <label class="switch controls__item">
+        <input type="checkbox" class="switch__input">
+        <span class="switch__slider controls-input"></span>
+        <span class="controls__label">Animate</span>
+      </label>
+      <label class="switch controls__item">
+        <input type="checkbox" class="switch__input">
+        <span class="switch__slider controls-input"></span>
+        <span class="controls__label">Hide</span>
+      </label>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

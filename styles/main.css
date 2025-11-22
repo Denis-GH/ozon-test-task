@@ -1,0 +1,180 @@
+@import url('./normalize.css');
+@import url('./palette.css');
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Roboto";
+  font-weight: 500;
+  background-color: var(--color-platinum);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.wrapper {
+  --padding: 20px;
+  --background-color: var(--color-white);
+  --gap: 80px;
+
+  width: 568px;
+  height: 320px;
+  background-color: var(--background-color);
+  padding: var(--padding);
+  display: flex;
+  gap: var(--gap);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper__title {
+  font-weight: inherit;
+  font-size: 18px;
+  display: inline;
+  position: absolute;
+}
+
+.wrapper__progress {
+  flex: 0 0 calc(50% - (var(--gap) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.progress-container {
+  width: 120px;
+  display: grid;
+  place-items: center;
+}
+
+.progress {
+  width: 100%; /* указывать ширину через js */
+  aspect-ratio: 1;
+  background: conic-gradient(var(--color-primary) var(--percent, 80%), var(--color-platinum) 0);
+  border-radius: 50%;
+  position: relative;
+}
+
+.progress::after {
+  content: "";
+  width: 83%;
+  background-color: var(--background-color);
+  aspect-ratio: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.wrapper__controls {
+  flex: 0 0 calc(50% - (var(--gap) / 2));
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
+.controls__container {
+  display: grid;
+  gap: 12px;
+}
+
+.controls input[type="checkbox"] {
+  appearance: none;
+  position: absolute;
+}
+
+.controls input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.controls {
+  --input-width: 45px;
+  --input-height: 30px;
+  --input-border-radius: calc(var(--input-height) / 2);
+  --switch-circle-width: calc(var(--input-height) - 4px);
+  --switch-transition: all 0.4s;
+}
+
+.controls__item {
+  width: min-content;
+  height: min-content;
+  display: flex;
+  gap: 22px;
+}
+
+.controls-input {
+  width: var(--input-width);
+  height: var(--input-height);
+  border-radius: var(--input-border-radius);
+}
+
+.value .controls-input {
+  border: 1.5px solid var(--color-black);
+  display: grid;
+  place-items: center;
+}
+
+.controls__label {
+  height: min-content;
+  align-self: center;
+}
+
+.switch {
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+}
+
+.switch__slider {
+  position: relative;
+  background-color: var(--color-AliceBlue);
+  transition: var(--switch-transition);
+}
+
+.switch:focus-within .switch__slider {
+  outline: 1px solid var(--color-primary);
+}
+
+.switch__slider::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: var(--switch-circle-width);
+  aspect-ratio: 1;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  transition: var(--switch-transition);
+}
+
+.switch__input:checked + .switch__slider {
+  background-color: var(--color-primary);
+
+}
+
+.switch__input:checked + .switch__slider::before {
+  transform: translateX(calc(var(--input-width) - var(--switch-circle-width) - 4px));
+}
+
+@media (orientation: portrait) {
+  .wrapper {
+    flex-direction: column;
+    width: 320px;
+    height: 568px;
+  }
+  
+  .wrapper__progress {
+    flex-direction: column;
+  }
+
+  .wrapper__controls {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,11 @@
+/* названия цветов брал отсюда - https://coolors.co/[код цвета] */
+
+:root {
+  --color-white: #fefefe;
+  --color-black: #000000;
+  --color-platinum: #eef3f6;
+  --color-FullSpectrumBlue: #005cfe;
+  --color-AliceBlue: #dee6ef;
+
+  --color-primary: var(--color-FullSpectrumBlue);
+}
