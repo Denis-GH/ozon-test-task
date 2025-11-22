@@ -1,7 +1,7 @@
 .progress {
   width: 100%; /* TODO: указывать ширину через js */
   aspect-ratio: 1;
-  background: conic-gradient(var(--color-primary) var(--percent, 80%), var(--color-platinum) 0);
+  background: conic-gradient(var(--color-primary) var(--percent, 0), var(--color-platinum) 0);
   border-radius: 50%;
   position: relative;
 }
