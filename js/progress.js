@@ -17,21 +17,23 @@ class Progress {
   setValue(value) {
     let currentValue = this.value
 
-    // постепенное заполнение прогресса до указанного value (по 1% раз в 10ms)
-    const timer = setInterval(() => {
-      this.value = currentValue
-      this.render()
+    // постепенное заполнение прогресса до указанного value
+    const step = () => {
+      this.value = currentValue;
+      this.render();
 
-      if (currentValue == value) {
-        clearInterval(timer)
+      if (currentValue === value) return;
+
+      if (value > currentValue) {
+        currentValue += 1;
+      } else {
+        currentValue -= 1;
       }
 
-      if (value > this.value) {
-        currentValue += 1
-      } else {
-        currentValue -= 1
-      }      
-    }, 10);
+      requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
   }
 
   setAnimated(animated) {
