@@ -1,4 +1,4 @@
-class Progress {
+export class Progress {
   constructor(container) {
     this.value = 0
     this.animated = false
