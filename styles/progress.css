@@ -1,21 +1,9 @@
 .progress {
   width: 100%;
   aspect-ratio: 1;
-  background: conic-gradient(var(--color-primary) var(--percent, 0), var(--color-platinum) 0);
+  background: conic-gradient(var(--color-primary, #005cfe) var(--percent, 0), var(--color-platinum, #eef3f6) 0);
   border-radius: 50%;
-  position: relative;
-}
-
-.progress::after {
-  content: "";
-  width: 83%;
-  background-color: var(--background-color);
-  aspect-ratio: 1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
+  mask: radial-gradient(closest-side, transparent 82%, #fff 82%);
 }
 
 .progress.hidden {
