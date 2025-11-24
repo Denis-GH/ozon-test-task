@@ -4,7 +4,11 @@ export class Progress {
     this.animated = false
     this.hidden = false
 
-    this.container = container
+    if (typeof container === "string") {
+      this.container = document.querySelector(container);
+    } else if (container instanceof HTMLElement) {
+      this.container = container
+    }
 
     this.progressElement = document.createElement("div")
     this.progressElement.classList.add("progress")
