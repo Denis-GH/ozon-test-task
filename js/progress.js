@@ -19,6 +19,13 @@ export class Progress {
   }
 
   setValue(value) {
+    if (value > 100) {
+      value = 100
+    }
+    if (value < 0) {
+      value = 0
+    }
+
     let currentValue = this.value
 
     // постепенное заполнение прогресса до указанного value
