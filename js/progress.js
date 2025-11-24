@@ -15,7 +15,7 @@ export class Progress {
 
     this.container.appendChild(this.progressElement)
 
-    this.render()
+    this.#render()
   }
 
   setValue(value) {
@@ -24,7 +24,7 @@ export class Progress {
     // постепенное заполнение прогресса до указанного value
     const step = () => {
       this.value = currentValue;
-      this.render();
+      this.#render();
 
       if (currentValue === value) return;
 
@@ -42,15 +42,15 @@ export class Progress {
 
   setAnimated(animated) {
     this.animated = animated
-    this.render()
+    this.#render()
   }
 
   setHidden(hidden) {
     this.hidden = hidden
-    this.render()
+    this.#render()
   }
 
-  render() {
+  #render() {
     this.progressElement.style.setProperty("--percent", `${this.value}%`)
 
     if (this.animated) {
